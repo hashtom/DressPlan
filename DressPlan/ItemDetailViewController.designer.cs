@@ -16,14 +16,27 @@ namespace DressPlan
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton DeleteButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField ItemNameText { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView ItemPhoto { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton SaveButton { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (DeleteButton != null) {
+                DeleteButton.Dispose ();
+                DeleteButton = null;
+            }
+
             if (ItemNameText != null) {
                 ItemNameText.Dispose ();
                 ItemNameText = null;
@@ -32,6 +45,11 @@ namespace DressPlan
             if (ItemPhoto != null) {
                 ItemPhoto.Dispose ();
                 ItemPhoto = null;
+            }
+
+            if (SaveButton != null) {
+                SaveButton.Dispose ();
+                SaveButton = null;
             }
         }
     }
