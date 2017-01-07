@@ -111,7 +111,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="CoreClass\DressItem.cs" />
-    <Compile Include="CoreClass\DressPairs.cs" />
+    <Compile Include="CoreClass\DressPair.cs" />
     <Compile Include="CoreClass\ItemLaundry.cs" />
     <Compile Include="UIClass\DressItemTableSource.cs" />
     <Compile Include="DressItemViewController.cs" />

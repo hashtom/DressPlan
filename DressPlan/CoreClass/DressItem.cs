@@ -43,14 +43,13 @@ namespace DressPlan
 		public ItemMaterial Material { get; set; }
 		public ItemBrand Brand { get; set; }
 		public int PurchasePrice { get; set; }
-		public List<DateTime> DatesDressed;
-		public List<DateTime> DatesLaunded;
-		public ItemLaundry Laundry { get; set; }
+		public List<DressPair> DressPairs;
+		public List<ItemLaundry> LaundryPlans;
 
 		public DressItem()
 		{
-			DatesDressed = new List<DateTime>();
-			DatesLaunded = new List<DateTime>();
+			DressPairs = new List<DressPair>();
+			LaundryPlans = new List<ItemLaundry>();
 		}
 
 		//public UIImage DressPhoto()

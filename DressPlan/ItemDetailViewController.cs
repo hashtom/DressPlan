@@ -7,35 +7,38 @@ namespace DressPlan
     public partial class ItemDetailViewController : UITableViewController
     {
 
-		public object DetailItem { get; set; }
+		public DressItem currentItem { get; set; }
+		public DressItemViewController Delegate { get; set; }
 
 		public ItemDetailViewController (IntPtr handle) : base (handle)
         {
         }
 
-		public void SetDetailItem(object newDetailItem)
+		public void SetItem(DressItemViewController d, DressItem item)
 		{
-			if (DetailItem != newDetailItem)
-			{
-				DetailItem = newDetailItem;
-
-				// Update the view
-				ConfigureView();
-			}
-		}
-
-		void ConfigureView()
-		{
-			// Update the user interface for the detail item
-			//if (IsViewLoaded && DetailItem != null)
-				//detailDescriptionLabel.Text = DetailItem.ToString();
+			Delegate = d;
+			currentItem = item;
 		}
 
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-			// Perform any additional setup after loading the view, typically from a nib.
-			ConfigureView();
+			//SaveButton.TouchUpInside += (sender, e) =>
+			//{
+			//	currentItem.ItemName = ItemNameText.Text;r
+			//	Delegate.SaveItem(currentItem);
+			//}
+			DeleteButton.TouchUpInside += (sender, e) => Delegate.DeleteItem(currentItem);
+		}
+
+		public override void ViewWillAppear(bool animated)
+		{
+			base.ViewWillAppear(animated);
+			ItemNameText.Text = currentItem.ItemName;
+			ItemPhoto.Image =  UIImage.FromFile(currentItem.DressPhotoFile);
+			//ItemCategoryPick = currentItem.Category.ToString();y
+			//ItemCategoryPick   = currentItem.Material.ToString();
+
 		}
 
 		public override void DidReceiveMemoryWarning()

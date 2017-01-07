@@ -3,12 +3,13 @@ using System.Collections.Generic;
 
 namespace DressPlan
 {
-	public class DressPairs
+	public class DressPair
 	{
-		public DateTime DressDate { get; set; }
+		public DateTime DateDressed { get; set; }
 		public List<DressItem> DressItems;
+		public string DressMemo { get; set; }
 
-		public DressPairs()
+		public DressPair()
 		{
 			DressItems = new List<DressItem>();
 		}

@@ -60,8 +60,8 @@ namespace DressPlan
 				TableView.InsertRows(new[] { indexPath }, UITableViewRowAnimation.Automatic);
 		}
 
-		//public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
-		//{
+		public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
+		{
 			//if (segue.Identifier == "ItemSegue")
 			//{
 			//	var indexPath = TableView.IndexPathForSelectedRow;
@@ -69,18 +69,44 @@ namespace DressPlan
 
 			//	((DetailViewController)segue.DestinationViewController).SetDetailItem(item);
 			//}
-			//if (segue.Identifier == "ItemSegue")
-			//{
-			//	var navctlr = segue.DestinationViewController as ItemDetailViewController;
-			//	if (navctlr != null)
-			//	{
-			//		var source = TableView.Source as DressItemTableSource;
-			//		var rowPath = TableView.IndexPathForSelectedRow;
-			//		var item = source.GetItem(rowPath.Row);
-			//		navctlr.SetItem(this, item); // defined on the ItemDetailViewController
-			//	}
-			//}
-		//}
+			if (segue.Identifier == "ItemSegue")
+			{
+				var navctlr = segue.DestinationViewController as ItemDetailViewController;
+				if (navctlr != null)
+				{
+					var source = TableView.Source as DressItemTableSource;
+					var rowPath = TableView.IndexPathForSelectedRow;
+					var item = source.GetItem(rowPath.Row);
+					navctlr.SetItem(this, item); // defined on the ItemDetailViewController
+				}
+			}
+		}
+
+		public void CreateItem()
+		{
+			// first, add the task to the underlying data
+			var newId = dressitems[dressitems.Count - 1].Id + 1;
+			var newItem = new DressItem() { Id = newId };
+			dressitems.Add(newItem);
+
+			// then open the detail view to edit it
+			var detail = Storyboard.InstantiateViewController("detail") as ItemDetailViewController;
+			detail.SetItem(this, newItem);
+			NavigationController.PushViewController(detail, true);
+		}
+
+		public void SaveItem(DressItem item)
+		{
+			//var oldTask = dressitems.Find(t => t.Id == item.Id);
+			NavigationController.PopViewController(true);
+		}
+
+		public void DeleteItem(DressItem item)
+		{
+			var oldItem = dressitems.Find(t => t.Id == item.Id);
+			dressitems.Remove(oldItem);
+			NavigationController.PopViewController(true);
+		}
 
 		class DataSource : UITableViewSource
 		{
@@ -138,6 +164,8 @@ namespace DressPlan
 					// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
 				}
 			}
+
+
 		}
 
 	}
