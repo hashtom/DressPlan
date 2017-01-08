@@ -32,11 +32,13 @@ namespace DressPlan
 			// Perform any additional setup after loading the view, typically from a nib.
 			NavigationItem.LeftBarButtonItem = EditButtonItem;
 
-			var addButton = new UIBarButtonItem(UIBarButtonSystemItem.Add, AddNewItem);
-			addButton.AccessibilityLabel = "addButton";
-			NavigationItem.RightBarButtonItem = addButton;
+			//var addButton = new UIBarButtonItem(UIBarButtonSystemItem.Add, AddNewItem);
+			//addButton.AccessibilityLabel = "addButton";
+			//NavigationItem.RightBarButtonItem = addButton;
 
-			TableView.Source = new DataSource(this);
+			//TableView.Source = new DataSource(this);
+
+			//addButton.Clicked += (sender, e) => CreateItem();
 		}
 
 		public override void ViewWillAppear(bool animated)
@@ -52,13 +54,13 @@ namespace DressPlan
 			// Release any cached data, images, etc that aren't in use.
 		}
 
-		void AddNewItem(object sender, EventArgs args)
-		{
-			//dataSource.Objects.Insert(0, DateTime.Now);
+		//void AddNewItem(object sender, EventArgs args)
+		//{
+		//	//dataSource.Objects.Insert(0, DateTime.Now);
 
-			using (var indexPath = NSIndexPath.FromRowSection(0, 0))
-				TableView.InsertRows(new[] { indexPath }, UITableViewRowAnimation.Automatic);
-		}
+		//	using (var indexPath = NSIndexPath.FromRowSection(0, 0))
+		//		TableView.InsertRows(new[] { indexPath }, UITableViewRowAnimation.Automatic);
+		//}
 
 		public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
 		{
@@ -82,11 +84,17 @@ namespace DressPlan
 			}
 		}
 
+		partial void ButtonAdd_Activated(UIBarButtonItem sender)
+		{
+			CreateItem();
+		}
+
 		public void CreateItem()
 		{
 			// first, add the task to the underlying data
 			var newId = dressitems[dressitems.Count - 1].Id + 1;
 			var newItem = new DressItem() { Id = newId };
+			newItem.ItemName = "New Item";
 			dressitems.Add(newItem);
 
 			// then open the detail view to edit it

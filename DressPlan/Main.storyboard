@@ -70,7 +70,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Dress Plan" id="tQt-TN-PWz">
-                        <barButtonItem key="rightBarButtonItem" id="128" systemItem="add"/>
+                        <barButtonItem key="rightBarButtonItem" id="128" systemItem="add">
+                            <connections>
+                                <action selector="ButtonAdd_Activated:" destination="pGg-6v-bdr" id="185"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="ButtonAdd" destination="128" id="name-outlet-128"/>
@@ -173,7 +177,7 @@
                                 </cells>
                             </tableViewSection>
                         </sections>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="163" key="tableHeaderView" image="Shirt_sample.jpg">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="163" key="tableHeaderView">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>

@@ -20,14 +20,39 @@ namespace DressPlan
 			currentItem = item;
 		}
 
+
+		//public void SetItem(DressItem newItem)
+		//{
+		//	if (currentItem != newItem)
+		//	{
+		//		currentItem = newItem;
+		//		ConfigureView();
+		//	}
+		//}
+
+//		void ConfigureView()
+//		{/
+//			if (IsViewLoaded && currentItem != null)
+//			{
+//				ItemNameText.Text = currentItem.ItemName;
+//				ItemPhoto.Image = UIImage.FromFile(currentItem.DressPhotoFile);
+				//ItemCategoryPick = currentItem.Category.ToString();y
+				//ItemCategoryPick   = currentItem.Material.ToString()/
+//			}
+//		}
+
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-			//SaveButton.TouchUpInside += (sender, e) =>
-			//{
-			//	currentItem.ItemName = ItemNameText.Text;r
-			//	Delegate.SaveItem(currentItem);
-			//}
+
+			//ConfigureView();
+
+			SaveButton.TouchUpInside += (sender, e) =>
+			{
+				currentItem.ItemName = ItemNameText.Text;
+				Delegate.SaveItem(currentItem);
+			};
+
 			DeleteButton.TouchUpInside += (sender, e) => Delegate.DeleteItem(currentItem);
 		}
 
@@ -35,7 +60,7 @@ namespace DressPlan
 		{
 			base.ViewWillAppear(animated);
 			ItemNameText.Text = currentItem.ItemName;
-			ItemPhoto.Image =  UIImage.FromFile(currentItem.DressPhotoFile);
+			if (currentItem.DressPhotoFile != null ) ItemPhoto.Image =  UIImage.FromFile(currentItem.DressPhotoFile);
 			//ItemCategoryPick = currentItem.Category.ToString();y
 			//ItemCategoryPick   = currentItem.Material.ToString();
 

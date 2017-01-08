@@ -18,6 +18,10 @@ namespace DressPlan
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIBarButtonItem ButtonAdd { get; set; }
 
+        [Action ("ButtonAdd_Activated:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void ButtonAdd_Activated (UIKit.UIBarButtonItem sender);
+
         void ReleaseDesignerOutlets ()
         {
             if (ButtonAdd != null) {

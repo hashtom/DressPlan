@@ -26,7 +26,8 @@ namespace DressPlan
 			// now set the properties as normal
 			cell.TextLabel.Text = tableItems[indexPath.Row].ItemName;
 			cell.DetailTextLabel.Text = tableItems[indexPath.Row].Category.ToString();
-			cell.ImageView.Image = UIImage.FromFile(tableItems[indexPath.Row].DressPhotoFile);
+			if ( tableItems[indexPath.Row].DressPhotoFile != null)
+				cell.ImageView.Image = UIImage.FromFile(tableItems[indexPath.Row].DressPhotoFile);
 
 			return cell;
 		}
