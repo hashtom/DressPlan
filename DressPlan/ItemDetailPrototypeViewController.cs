@@ -4,13 +4,13 @@ using UIKit;
 
 namespace DressPlan
 {
-    public partial class ItemDetailViewController : UITableViewController
+    public partial class ItemDetailPrototypeViewController : UITableViewController
     {
 
 		public DressItem currentItem { get; set; }
 		public DressItemViewController Delegate { get; set; }
 
-		public ItemDetailViewController (IntPtr handle) : base (handle)
+		public ItemDetailPrototypeViewController (IntPtr handle) : base (handle)
         {
         }
 

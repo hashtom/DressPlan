@@ -36,13 +36,14 @@ namespace DressPlan
 
 	public class DressItem
 	{
-		public int Id { get; set;}
+		public int Id { get; set; }
 		public String DressPhotoFile { get; set; }
 		public string ItemName { get; set; }
 		public ItemCategory Category { get; set; }
 		public ItemMaterial Material { get; set; }
 		public ItemBrand Brand { get; set; }
 		public int PurchasePrice { get; set; }
+		public DateTime PurchaseDate { get; set; }
 		public List<DressPair> DressPairs;
 		public List<ItemLaundry> LaundryPlans;
 

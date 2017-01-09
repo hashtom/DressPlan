@@ -118,6 +118,10 @@
     <Compile Include="DressItemViewController.designer.cs">
       <DependentUpon>DressItemViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="ItemDetailPrototypeViewController.cs" />
+    <Compile Include="ItemDetailPrototypeViewController.designer.cs">
+      <DependentUpon>ItemDetailPrototypeViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="ItemDetailViewController.cs" />
     <Compile Include="ItemDetailViewController.designer.cs">
       <DependentUpon>ItemDetailViewController.cs</DependentUpon>

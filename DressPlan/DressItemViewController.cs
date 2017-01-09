@@ -73,7 +73,7 @@ namespace DressPlan
 			//}
 			if (segue.Identifier == "ItemSegue")
 			{
-				var navctlr = segue.DestinationViewController as ItemDetailViewController;
+				var navctlr = segue.DestinationViewController as ItemDetailPrototypeViewController;
 				if (navctlr != null)
 				{
 					var source = TableView.Source as DressItemTableSource;
@@ -98,7 +98,7 @@ namespace DressPlan
 			dressitems.Add(newItem);
 
 			// then open the detail view to edit it
-			var detail = Storyboard.InstantiateViewController("detail") as ItemDetailViewController;
+			var detail = Storyboard.InstantiateViewController("detail") as ItemDetailPrototypeViewController;
 			detail.SetItem(this, newItem);
 			NavigationController.PushViewController(detail, true);
 		}
