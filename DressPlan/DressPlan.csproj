@@ -93,6 +93,13 @@
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-40%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-60%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-60%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-76%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-83.5%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -118,10 +125,6 @@
     <Compile Include="DressItemViewController.designer.cs">
       <DependentUpon>DressItemViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ItemDetailPrototypeViewController.cs" />
-    <Compile Include="ItemDetailPrototypeViewController.designer.cs">
-      <DependentUpon>ItemDetailPrototypeViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="ItemDetailViewController.cs" />
     <Compile Include="ItemDetailViewController.designer.cs">
       <DependentUpon>ItemDetailViewController.cs</DependentUpon>
@@ -131,6 +134,10 @@
     <BundleResource Include="Resources\Tomo_sample.jpg" />
     <BundleResource Include="Resources\Pants_sample.jpg" />
     <BundleResource Include="Resources\Shirt_sample.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

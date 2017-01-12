@@ -11,8 +11,8 @@ using UIKit;
 
 namespace DressPlan
 {
-    [Register ("ItemDetailPrototypeViewController")]
-    partial class ItemDetailPrototypeViewController
+    [Register ("ItemDetailViewController")]
+    partial class ItemDetailViewController
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
