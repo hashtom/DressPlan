@@ -89,6 +89,8 @@ namespace DressPlan
 			CreateItem();
 		}
 
+
+
 		public void CreateItem()
 		{
 			// first, add the task to the underlying data
@@ -116,65 +118,65 @@ namespace DressPlan
 			NavigationController.PopViewController(true);
 		}
 
-		class DataSource : UITableViewSource
-		{
-			static readonly NSString CellIdentifier = new NSString("Cell");
-			readonly List<object> objects = new List<object>();
-			readonly DressItemViewController controller;
+		//class DataSource : UITableViewSource
+		//{
+		//	static readonly NSString CellIdentifier = new NSString("Cell");
+		//	readonly List<object> objects = new List<object>();
+		//	readonly DressItemViewController controller;
 
-			public DataSource(DressItemViewController controller)
-			{
-				this.controller = controller;
-			}
+		//	public DataSource(DressItemViewController controller)
+		//	{
+		//		this.controller = controller;
+		//	}
 
-			public IList<object> Objects
-			{
-				get { return objects; }
-			}
+		//	public IList<object> Objects
+		//	{
+		//		get { return objects; }
+		//	}
 
-			// Customize the number of sections in the table view.
-			public override nint NumberOfSections(UITableView tableView)
-			{
-				return 1;
-			}
+		//	// Customize the number of sections in the table view.
+		//	public override nint NumberOfSections(UITableView tableView)
+		//	{
+		//		return 1;
+		//	}
 
-			public override nint RowsInSection(UITableView tableview, nint section)
-			{
-				return objects.Count;
-			}
+		//	public override nint RowsInSection(UITableView tableview, nint section)
+		//	{
+		//		return objects.Count;
+		//	}
 
-			// Customize the appearance of table view cells.
-			public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
-			{
-				var cell = tableView.DequeueReusableCell(CellIdentifier, indexPath);
+		//	// Customize the appearance of table view cells.
+		//	public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
+		//	{
+		//		var cell = tableView.DequeueReusableCell(CellIdentifier, indexPath);
 
-				cell.TextLabel.Text = objects[indexPath.Row].ToString();
+		//		cell.TextLabel.Text = objects[indexPath.Row].ToString();
 
-				return cell;
-			}
+		//		return cell;
+		//	}
 
-			public override bool CanEditRow(UITableView tableView, NSIndexPath indexPath)
-			{
-				// Return false if you do not want the specified item to be editable.
-				return true;
-			}
+		//	public override bool CanEditRow(UITableView tableView, NSIndexPath indexPath)
+		//	{
+		//		// Return false if you do not want the specified item to be editable.
+		//		return true;
+		//	}
 
-			public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, NSIndexPath indexPath)
-			{
-				if (editingStyle == UITableViewCellEditingStyle.Delete)
-				{
-					// Delete the row from the data source.
-					objects.RemoveAt(indexPath.Row);
-					controller.TableView.DeleteRows(new[] { indexPath }, UITableViewRowAnimation.Fade);
-				}
-				else if (editingStyle == UITableViewCellEditingStyle.Insert)
-				{
-					// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-				}
-			}
+		//	public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, NSIndexPath indexPath)
+		//	{
+		//		if (editingStyle == UITableViewCellEditingStyle.Delete)
+		//		{
+		//			// Delete the row from the data source.
+		//			objects.RemoveAt(indexPath.Row);
+		//			controller.TableView.DeleteRows(new[] { indexPath }, UITableViewRowAnimation.Fade);
+		//		}
+		//		else if (editingStyle == UITableViewCellEditingStyle.Insert)
+		//		{
+		//			// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+		//		}
+		//	}
 
 
-		}
+		//}
 
 	}
 }
